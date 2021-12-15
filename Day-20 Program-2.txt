@@ -1,0 +1,75 @@
+/*
+Rohan is given a range of natural numbers, [start, end], both are inclusive. 
+He has to find the count of special numbers in the given range.    
+
+Special Number is identified as follows:
+    - Convert each number to its binary form, and 
+      count the number of 1's in the binary form.
+    - It is considered as Special number, if the count is a prime number.
+
+Your aim is to help Rohan to find count of special numbers in given range.
+
+Input Format:
+-------------
+Line: 2 space seperated integers, start and end.
+ 
+Output Format:
+--------------
+Print an integer result.
+ 
+
+Sample Input-1:
+---------------
+11 15
+ 
+Sample Output-1:
+----------------
+4
+ 
+Explanation:
+------------
+11- 1011-(3 1's in binary, 3 is a prime number)
+12- 1100-(2 1's in binary, 2 is a prime number)
+13- 1101-(3 1's in binary, 3 is a prime number)
+14- 1110-(3 1's in binary, 3 is a prime number)
+15- 1111-(4 1's in binary, 4 is a not prime number)
+
+ 
+Sample Input-2:
+---------------
+5 8
+
+Sample Output-2:
+----------------
+3
+ 
+Explanation:
+------------
+5- 101-(2 1's in binary, 2 is a prime number)
+6- 110-(2 1's in binary, 2 is a prime number)
+7- 111-(3 1's in binary, 3 is a prime number)
+8- 1000-(1 1's in binary, 1 is not a prime number)
+
+*/
+
+
+import sympy
+l=list(map(int,input().split()))[:2]
+start=l[0]
+end=l[1]
+
+def count_ones(n):
+    bi=bin(n)[2:]
+    l1=[]
+    for i in bi:
+        l1.append(i)
+    # print(l1)
+    count_ones.count1=l1.count("1")
+l2=[]
+for i in range(start,end+1):
+    count_ones(i)
+    
+    if sympy.isprime(count_ones.count1):
+        l2.append(i)
+        # print(l2)
+print(len(l2))

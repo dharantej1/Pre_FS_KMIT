@@ -1,0 +1,67 @@
+/*
+You are given a list of integers List[].
+Your can choose any integers in List[] of size exactly 3 , such that the product
+of the integers should be highest.
+And print the highest value.
+    
+Input Format:
+-------------
+Line-1: An integer N represents size of the list.
+Line-2: N space separated integers, List[]
+   
+Output Format:
+---------------
+Print an integer value
+  
+Constraints:
+
+    3 <= N <= 10^4
+    -1000 <= list[i] <= 1000
+
+  
+Sample Input-1:
+---------------
+5
+1 2 -3 -4 5
+   
+Sample Output-1:
+----------------
+60
+  
+Explanation:
+------------
+The integers are -3,-4,5.
+  
+Sample Input-2:
+---------------
+6
+-6 2 4 1 2 3
+   
+Sample Output-2:
+----------------
+24
+
+Explanation:
+------------
+The integers are 4,3,2.
+    
+*/
+#include<bits/stdc++.h>
+using namespace std;
+int max3(int a[],int p){
+    sort(a,a+p);
+    int x=a[0]*a[1]*a[p-1];
+    int y=a[p-3]*a[p-2]*a[p-1];
+    return max(x,y);
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int b=max3(arr,n);
+    cout<<b;
+}

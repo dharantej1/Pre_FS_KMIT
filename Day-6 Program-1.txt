@@ -1,0 +1,74 @@
+Ms Sindhu is a given a task.
+She needs your help to complete the task.
+
+The Task is defined as follows:
+    - She is given a word W.
+    - She needs to find the first occurance of letter,
+      which is appeared only once in the whole word W.
+      And return the index position of that letter in W.
+If no such letter exists in W print '-1'.
+
+NOTE: W contains only lowwercase letters.
+
+
+Input Format:
+-------------
+A string W, word.
+
+Output Format:
+--------------
+Print an integer result.
+
+
+Sample Input-1:
+---------------
+divide
+
+Sample Output-1:
+----------------
+2
+
+Explanation:
+------------
+Both 'v' and 'e' are appeared only once.
+The first appeared character is 'v' at position-2.
+
+
+Sample Input-2:
+---------------
+vikatakavi
+
+Sample Output-2:
+----------------
+4
+
+
+Sample Input-3:
+---------------
+noon
+
+Sample Output-3:
+----------------
+-1
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string W;
+    int i;
+    cin>>W;
+    unordered_map<char,int> Z;
+    for( i=0;i<W.length();i++)
+    {
+        Z[W[i]]++;
+    }
+    for(i=0;i<W.length();i++)
+    {
+        if(Z[W[i]]==1)
+        {
+            cout<<i;
+            exit(0);
+        }
+    }
+    cout<<-1;
+}

@@ -1,0 +1,143 @@
+Problem 1 :
+
+/*
+There are a set of boxes and each box has a number.
+Rohan arranged these set of boxes in an array.b[i] is the number written on ith box.
+Given a key value k, Your task is to return "true" if b[i]==b[j] and abs(i-j)<=k.
+otherwise return "false".
+
+Input Format:
+-------------
+Line-1: An integer n, number of boxes.
+Line-2: n space separated integers represents number on each box.
+Line-3: take k value
+
+Output Format:
+--------------
+boolean value
+
+Constraints:
+
+    1 <= n <= 10^5
+    -10^9 <= b[i] <= 10^9
+	0<=k<=10^5
+
+
+
+Sample Input-1:
+---------------
+4
+5 2 3 5
+3
+
+Sample Output-1:
+----------------
+true
+
+Explanation-1:
+--------------
+b[0]==b[3] and abs(0-3)<=3
+
+
+Sample Input-2:
+---------------
+6
+4 2 3 6 4 7
+2
+
+Sample Output-2:
+----------------
+false
+
+Explanation-2:
+-------------
+There is no index pair with the given contraints satisfied.
+
+  
+*/
+(100/100)
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>> n;
+    int *arr=new int[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+
+    cin>>k;
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]==arr[j] and abs(i-j)<=k){
+                    cout<<"true"<<endl;
+                    exit(0);
+                
+            }
+            
+        }
+    }
+    cout<<"false"<<endl;
+
+
+}
+
+
+Problem 2 :
+
+Neeraj wants to create a coding system which converts a word(all uppercase) 
+into a number as follows.
+
+A means 1,
+B means 2,
+...
+Z means 26,
+AA means 27,
+AB means 28,
+...
+AAA means 703
+...
+
+You are given a word W,
+Your task is to help Neeraj to convert W into a number using 
+the given coding system.
+
+Input Format:
+-------------
+A string W,a word.
+
+
+Output Format:
+--------------
+Print an integer result.
+
+Constraints:
+---------    
+	- 1 <= word.length <= 7    
+	- W is in the range ["A", "FXSHRXW"].
+
+
+Sample Input-1:
+---------------
+D
+
+Sample Output-1:
+----------------
+4
+
+
+Sample Input-2:
+---------------
+RRR
+
+Sample Output-2:
+----------------
+12654
+(100/100)
+def S2i(s):
+	result = 0;
+	for i in range(len(s)):
+		result =result *26;
+		result += ord(s[i]) - ord('A') + 1;
+	return result;
+print(S2i(input()))

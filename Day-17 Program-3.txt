@@ -1,0 +1,87 @@
+/*
+You are given a list of integers List[] of size N.
+Your task is find a position p(0<=p<=N-1) in the List[], such that the addition
+of all integers to the left of p should be exactly equal to addition of all the
+integers to the right of p.
+If all the integers are at one end of p ,assume the sum of other end is 0.
+If there exist more than one answer , then return the leftmost p value.
+if p doesn't exist, return -1.
+    
+Input Format:
+-------------
+Line-1: An integer N represents size of the list.
+Line-2: N space separated integers, List[]
+   
+Output Format:
+---------------
+Print an integer result.
+  
+  
+Sample Input-1:
+---------------
+5
+10 2 3 4 3
+
+Sample Output-1:
+----------------
+1
+
+Explanation:
+------------
+p=1.
+Left of p=10
+Right of p=3+4+3=10.
+  
+  
+Sample Input-2:
+---------------
+4
+1 2 2 4
+
+   
+Sample Output-2:
+----------------
+-1
+
+
+    
+*/
+#include<bits/stdc++.h>
+using namespace std;
+int pivot(int arr[], int n)
+{
+    int leftsum[n];
+    int rightsum[n];
+    for(int i=0;i<n;i++){
+        leftsum[i]=0;
+        rightsum[i]=0;
+    }
+    int lsum=0,rsum=0;
+    for (int i=0;i<n;i++){
+        lsum+=arr[i];
+        rsum+=arr[n-i-1];
+        leftsum[i] =lsum;
+        rightsum[i]=rsum;
+    }
+    /*for(int i=0;i<n;i++){
+        cout<<leftsum[i]<<" "<<rightsum[i]<<endl;
+    }*/
+    for (int i=0;i<n;i++){
+        if (leftsum[i]==rightsum[n-i-1]){
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int b=pivot(a,n);
+    cout<<b;
+}

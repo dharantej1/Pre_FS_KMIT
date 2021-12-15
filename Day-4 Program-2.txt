@@ -1,0 +1,63 @@
+Suman is given two words W1 and W2. 
+His task is to derive W2 from W1, with the following operations:
+	- Replace all the occurrences of a letter in W1 with any other letter.
+	- Repeat the above step to derive  W2 from W1.
+	
+Your task is to check whether W2 can be derived from W1 or not.
+If yes, print 'true', Otherwise print 'false'.
+
+NOTE: You may assume both W1 and W2 have the same length.
+
+Sample Input-1:
+-------------------
+paper 
+title
+
+Sample Output-1:
+---------------------
+true
+
+Explanation:
+----------------
+'p' is replaced with 't', 'a' is with 'i', 'e' is with 'l', and 'r' with 'e'.
+
+
+Sample Input-2:
+-------------------
+memo 
+demo
+
+Sample Output-2:
+---------------------
+false
+#include<bits/stdc++.h>
+using namespace  std;
+int main(){
+    string s1,s2;
+    cin>>s1;
+    cin>>s2;
+    unordered_map<char,int> mp1;
+    unordered_map<char,int> mp2;
+    if(s1.length()!=s2.length()){
+        cout<<"false";
+    }
+    for(int i=0;i<s1.length();i++){
+        mp1[s1[i]]++;
+    }
+    for(int i=0;i<s2.length();i++){
+        mp2[s2[i]]++;
+    }
+    int count=0;
+    int n=s1.length();
+    for(int i=0;i<n;i++){
+        if(mp1[s1[i]]==mp2[s2[i]]){
+            count++;
+        }
+    }
+    if(s1.length()==count){
+        cout<<"true";
+    }
+    else{
+        cout<<"false";
+    }
+}

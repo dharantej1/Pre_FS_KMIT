@@ -1,0 +1,75 @@
+/*
+Varun and Srujan are playing a word game. Srujan has given a word of length N 
+and a character(ch) which exist in the word.
+Now Varun's task is to find the smallest distance of the given character in the
+word for each position in the word.
+
+Help Varun to return an array result[] where result.length==N and result[i] is 
+the smallest distance from the given character to index i in the word.
+
+The distance between two indices i and j is abs(i - j) , where abs is the 
+absolute value function.
+
+Input Format:
+-------------
+Line-1: A string represents a word
+Line-2: a character ch which exist in the word.
+ 
+Output Format:
+--------------
+Print an array of N values
+ 
+Constraints:
+ 1 <= word.length <= 10^4
+word[i] and ch are lowercase English letters.
+It is guaranteed that 'ch' occurs at least once in word .
+
+ 
+Sample Input-1:
+---------------
+conclude
+c
+ 
+Sample Output-1:
+----------------
+0 1 1 0 1 2 3 4
+
+ 
+Sample Input-2:
+---------------
+kmitngit
+i
+
+Sample Output-2:
+----------------
+2 1 0 1 2 1 0 1 
+
+ 
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+void shortestToChar(string a, char C) {
+   vector < int > pos, dist;
+   for (int i = 0; i < a.size(); i++) {
+      if (a[i] == C)
+         pos.push_back(i);
+   }
+   for (int i = 0; i < a.size(); i++) {
+      int mn = INT_MAX;
+      for (int j = 0; j < pos.size(); j++) {
+         mn = min(mn, abs(pos[j] - i));
+      }
+      dist.push_back(mn);
+   }
+   for (auto i: dist) {
+      cout << i << " ";
+   }
+}
+int main() {
+   string a;
+   cin>>a;
+   char ch;
+   cin>>ch;
+   shortestToChar(a, ch);
+}

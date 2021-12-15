@@ -1,0 +1,60 @@
+/*
+ A Magic box has cells with p rows and r columns.Each cell is initially empty
+ (represented by 0).
+You are given a 'c' set of cells cell[][] and the box should be filled with 
+gold coins as follows.
+	-For each given cell (i,j) , Add 1 gold coin for each cell starting 
+	from (0,0) to 	 (i-1,j-1).
+
+Your task is to return the number of cells with maximum number of gold coins 
+after performing 'c' operations.
+
+Input Format:
+-------------
+Line-1: Two space seperated integers represents p,r.
+Line-2: An integer represents 'c'.
+Next c Lines: Two-space separated integers representa cell.
+  
+Output Format:
+--------------
+ Print an integer value.
+   
+ Sample Input-1:
+ ---------------
+4 4
+3
+4 3
+1 3
+1 2
+  
+Sample Output-1:
+----------------
+2
+
+Explanation:
+------------
+Look Hint for explanation.
+   
+Sample Input-2:
+---------------
+2 2
+1
+1 2
+  
+Sample Output-2:
+----------------
+2
+
+
+*/
+
+r,c=input().split()
+noc=int(input())
+l=[]
+rows,cols=[],[]
+for i in range(noc):
+    l.append(list(input().split()))
+for i in range(noc):
+    rows.append(int(l[i][0]))
+    cols.append(int(l[i][1]))
+print(min(rows)*min(cols))

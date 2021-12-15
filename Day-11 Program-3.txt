@@ -1,0 +1,43 @@
+/*
+Ganesh's lucky number is 3.
+He works as an accountant in a company.
+He likes to know the third highest salary among all the employees.
+ 
+You will be given an array of salaries salary[].
+You need to help Ganesh to find the third highest salary (distinct).
+ 
+NOTE: Salary is in lakhs per annum.
+ 
+ Input Format:
+ -------------
+ Line-1:An integer N represents no.of salaries.
+ Line-2: N space separated integers represents the salaries.
+  
+ Output Format:
+ --------------
+ Print an integer, third highest salary.
+  
+  
+ Sample Input-1:
+ ---------------
+  5
+  3 5 2 7 6
+  
+  Sample Output-1:
+  ----------------
+  5
+   
+   
+  Sample Input-2:
+  ---------------
+   5
+   5 5 4 7 7
+   
+  Sample Output-2:
+  ----------------
+   4
+   
+*/
+a=int(input())
+b=list(map(int,input().split()))[:a]
+print(list(set(b))[-3])

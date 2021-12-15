@@ -1,0 +1,47 @@
+/*
+You are given a list of positive integers List[], and an integer S.
+Your task is find a subList[] in List[] of length S, such that
+the avarage sum of subList[] should be highest.
+And print the avarage value.
+    
+Input Format:
+-------------
+Line-1: An integer N represents size of the list.
+Line-2: N space separated integers, List[]
+Line-3: An integer S, length of subList[]
+   
+Output Format:
+---------------
+Print a double value.
+  
+  
+Sample Input-1:
+---------------
+6
+4 14 -8 -2 27 12
+4
+
+Explanation:
+------------
+Sublist is [14 -8 -2 27]
+    
+Sample Output-1:
+----------------
+7.75
+  
+  
+Sample Input-2:
+---------------
+7
+-3 -5 7 8 12 -10 -12
+4
+   
+Sample Output-2:
+----------------
+5.5
+
+Explanation:
+------------
+Sublist is [-5 7 8 12]
+    
+*/

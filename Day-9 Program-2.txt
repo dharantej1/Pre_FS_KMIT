@@ -1,0 +1,65 @@
+/*
+There is a series of bulbs in which some bulbs are turned on(indicated by 1) 
+ and others are off(indicated by 0). 
+ 
+A contiguous sub-series of bulbs CSB with following rules.
+ 1. Number of bulbs with status as 'on' and 'off' are same.
+ 2. Bulbs which are 'on' and 'off' are grouped together.
+ You will be given the series as a string of 1's and 0's.
+ Your task is to find the count of all the CSBs  exist in the given series.
+ 
+ Input Format:
+ -------------
+ A string, indicates bulbs series.
+
+ Output Format:
+ --------------
+ Print an integer result.
+
+ Sample Input-1:
+ ---------------
+ 010011000110
+  
+ Sample Output-1:
+ ----------------
+  9
+ 
+ Explanation:
+ ------------
+ 01-3, 10-3, 0011-2, 1100-1 
+
+ Sample Input-2:
+ ---------------
+ 0101010
+ 
+ Sample Output-2:
+ ----------------
+ 6
+ 
+ Explanation:
+ ------------
+ 01-3, 10-3
+*/
+string=list(input())
+pg=0
+cg=1
+c=0
+for i in range(len(string)-1):
+    if(string[i]==string[i+1]):
+        cg+=1;
+    else:
+        c+=min(pg,cg)
+        pg=cg
+        cg=1
+c+=min(pg,cg)
+print(c)
+
+or
+
+word=input()
+count_of_ones,occurences=word.count('1'),0
+while(count_of_ones!=0):
+    pattern='1'*count_of_ones+'0'*count_of_ones
+    occurences+=word.count(pattern)+word.count(pattern[::-1])
+    count_of_ones=1
+print(occurences)

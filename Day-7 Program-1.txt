@@ -1,0 +1,78 @@
+Special numbers are numbers whose only prime factors are 2, 3 or 5. 
+The sequence 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, … shows the first 11 Special numbers. 
+By convention, 1 is included.
+
+You are given a number n, the task is to find n-th Special number.
+
+Input Format:
+-------------
+An integer N.
+
+Output Format:
+--------------
+Print N-th Special Number.
+
+
+Sample Input-1:
+---------------
+7
+
+Sample Output-1:
+----------------
+8
+
+
+Sample Input-2:
+---------------
+15
+
+Sample Output-2:
+----------------
+24
+#include <iostream>
+using namespace std;
+
+
+int maxDivide(int a, int b)
+{
+	while (a % b == 0)
+		a = a / b;
+		
+	return a;
+}
+
+
+int isUgly(int no)
+{
+	no = maxDivide(no, 2);
+	no = maxDivide(no, 3);
+	no = maxDivide(no, 5);
+
+	return (no == 1) ? 1 : 0;
+}
+
+
+int getNthUglyNo(int n)
+{
+	int i = 1;
+
+	int count = 1;
+
+	while (n > count)
+	{
+		i++;
+		if (isUgly(i))
+			count++;
+	}
+	return i;
+}
+
+int main()
+{
+	int y;
+	cin>>y;
+	unsigned no = getNthUglyNo(y);
+	cout << no;
+	return 0;
+}
+
